@@ -6,10 +6,10 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/tags: Environment=dev,Team=test
+    alb.ingress.kubernetes.io/tags: Env=albwaf,Owner=vladionescu
 spec:
   rules:
-    - host: echoserver.example.com
+    - host: echoserver.external.alb-waf.vladionescu.experimental.ownzones.com
       http:
         paths:
           - path: /
