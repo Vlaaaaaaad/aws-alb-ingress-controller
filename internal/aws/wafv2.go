@@ -41,7 +41,7 @@ func (c *Cloud) AssociateWAFV2(ctx context.Context, resourceArn *string, webACLA
 	return result, nil
 }
 
-// GetWebACLARN ARN for WAFv2 WebACL
+// GetWebACLARN return associated ARN for WAFv2 ACL resource.
 func (c *Cloud) GetWebACLARN(ctx context.Context, webACLName *string, webACLId *string) (string, error) {
 	// TODO: Is this neccessary?
 	//       Could I just return "arn:aws:$REGION:wafv2:somethng-something"?
@@ -71,16 +71,3 @@ func (c *Cloud) DisassociateWAFV2(ctx context.Context, resourceArn *string) (*wa
 
 	return result, nil
 }
-
-/* 
-	- see what is attached for v2
-		- https://docs.aws.amazon.com/waf/latest/APIReference/API_GetWebACLForResource.html
-		- takes ALB ARN in
-	- see if need changes
-	- attach
-		- https://docs.aws.amazon.com/waf/latest/APIReference/API_AssociateWebACL.html
-		- ALB ARN + ACL ARN in
-	- detach
-		- https://docs.aws.amazon.com/waf/latest/APIReference/API_DisassociateWebACL.html
-		- Gets just ALB id?
-*/
